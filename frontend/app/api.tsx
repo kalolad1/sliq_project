@@ -1,29 +1,21 @@
-// import * as constants from './constants'
+import * as constants from './constants'
 
-// export async function fetchRegimenSearchResults (handpText: string): Promise<any> {
-//   const data = {
-//     handp_text: handpText
-//   }
-//   const fetchData = {
-//     method: 'POST',
-//     body: JSON.stringify(data),
-//     headers: new Headers({
-//       'Content-Type': 'application/json; charset=UTF-8',
-//       'Access-Control-Allow-Origin':'*',
-//       'Access-Control-Allow-Methods':'POST,PATCH,OPTIONS'
-//     })
-//   }
-//   const response = await fetch(constants.REGIMEN_SEARCH_ENDPOINT, fetchData)
+export async function fetchImage (prompt: string, height: number, width: number): Promise<any> {
+  const data = {
+    prompt: prompt,
+    height: height,
+    width: width
+  }
 
-//   return await response.json()
-// }
+  const fetchData = {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+        'Accept': "application/json",
+        'Content-Type': 'application/json; charset=UTF-8',
+    }
+  }
+  const response = await fetch(constants.IMAGE_GENERATION_ENDPOINT, fetchData)
 
-// export async function fetchReferenceDocument (diagnosis: string): Promise<any> {
-//   const fetchData = {
-//     method: 'GET',
-//     headers: new Headers({
-//       'Content-Type': 'application/json; charset=UTF-8'
-//     })
-//   }
-//   return await fetch(constants.REFERENCE_DOC_ENDPOINT + `/${diagnosis}`, fetchData)
-// }
+  return await response.blob()
+}
