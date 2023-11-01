@@ -28,7 +28,6 @@ flake8 --config ./$backend_directory/.flake8 ./$backend_directory
 mypy --config-file ./$backend_directory/mypy.ini -p $backend_directory
 python ./$backend_directory/manage.py makemigrations
 python ./$backend_directory/manage.py migrate
-python ./$backend_directory/manage.py loaddata backend/core/fixtures/*.json
 # Only test certain critical tests that use openAI API. Otherwise its too slow.
 python ./$backend_directory/manage.py test core --exclude-tag=slow
 pip freeze > ./$backend_directory/requirements.txt

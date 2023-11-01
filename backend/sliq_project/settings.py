@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-SECRET_KEY = 't2kadw*hvuo)3g&yl(@jq%n^6$5x7-ub5)f3*w5glg95n$pkdd'
+SECRET_KEY = "t2kadw*hvuo)3g&yl(@jq%n^6$5x7-ub5)f3*w5glg95n$pkdd"
 
 DEBUG = "True"
 
@@ -79,10 +79,10 @@ WSGI_APPLICATION = "sliq_project.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase', # This is where you put the name of the db file. 
-                 # If one doesn't exist, it will be created at migration time.
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": "mydatabase",  # This is where you put the name of the db file.
+        # If one doesn't exist, it will be created at migration time.
     }
 }
 
