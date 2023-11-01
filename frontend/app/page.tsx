@@ -14,7 +14,7 @@ function HomePage (): any {
 function ImageGeneratorForm (): any {
   const router = useRouter()
 
-  function handleSubmit (event: any) {
+  function handleSubmit (event: any): any {
     event.preventDefault()
     const formData = new FormData(event.target)
     const prompt = formData.get('inputText') as string
@@ -22,12 +22,12 @@ function ImageGeneratorForm (): any {
     const width = formData.get('width') as string
 
     const params = {
-      "prompt": prompt,
-      "height": height,
-      "width": width
+      prompt,
+      height,
+      width
     }
-    const url_params = new URLSearchParams(params).toString();
-    router.push('image_results?' + url_params)
+    const urlParams = new URLSearchParams(params).toString()
+    router.push('image_results?' + urlParams)
   }
 
   return (
@@ -46,11 +46,11 @@ function ImageGeneratorForm (): any {
 function DimensionInput (): any {
   return (
     <div className="flex space-x-3">
-      <DimensionTextArea name={"height"}/>
+      <DimensionTextArea name={'height'}/>
       <div className="flex flex-col justify-center">
         X
       </div>
-      <DimensionTextArea name={"width"}/>
+      <DimensionTextArea name={'width'}/>
     </div>
   )
 }
@@ -58,8 +58,8 @@ function DimensionInput (): any {
 function DimensionTextArea (props: any): any {
   const [inputTextValue, setInputTextValue] = useState('1024')
 
-  const handleInputChange = (event: any) => {
-    setInputTextValue(event.target.value)
+  function handleInputChange (Event: any): any {
+    setInputTextValue(Event.target.value)
   }
 
   return (
@@ -71,14 +71,14 @@ function DimensionTextArea (props: any): any {
       cols={4}
       className="border border-2 border-black rounded-lg text-gray-900 p-2.5"
     />
-  )  
+  )
 }
 
 function PromptTextArea (): any {
   const [inputTextValue, setInputTextValue] = useState('')
 
-  const handleInputChange = (event: any) => {
-    setInputTextValue(event.target.value)
+  function handleInputChange (Event: any): any {
+    setInputTextValue(Event.target.value)
   }
 
   return (

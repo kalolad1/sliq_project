@@ -3,26 +3,25 @@
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { saveAs } from 'file-saver'
-import { Puff } from  'react-loader-spinner'
-
+import { Puff } from 'react-loader-spinner'
 
 import { fetchImage } from '../api'
 
 function ImageResultsPage (): any {
   const [loading, setLoading] = useState(true)
-  const [img, setImg] = useState('');
+  const [img, setImg] = useState('')
 
   const searchParams = useSearchParams()
-  const prompt = searchParams.get("prompt")!
-  const height = Number(searchParams.get("height")!)
-  const width = Number(searchParams.get("width")!)
+  const prompt = searchParams.get('prompt')!
+  const height = Number(searchParams.get('height')!)
+  const width = Number(searchParams.get('width')!)
 
   useEffect(() => {
     fetchImage(prompt, height, width)
       .then((imageBlob: any) => {
         console.log(imageBlob)
-        const imageObjectURL = URL.createObjectURL(imageBlob);
-        setImg(imageObjectURL);
+        const imageObjectURL = URL.createObjectURL(imageBlob)
+        setImg(imageObjectURL)
       })
       .finally(() => {
         setLoading(false)
@@ -32,7 +31,7 @@ function ImageResultsPage (): any {
       })
   }, [])
 
-  function downloadImage() {
+  function downloadImage (): any {
     saveAs(img, `${prompt}.png`)
   }
 
@@ -59,7 +58,6 @@ function ImageResultsPage (): any {
 }
 
 function DownloadButton (props: any): any {
-  
   return (
     <div className=''>
       <button
