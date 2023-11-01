@@ -30,7 +30,7 @@ python ./$backend_directory/manage.py makemigrations
 python ./$backend_directory/manage.py migrate
 # Only test certain critical tests that use openAI API. Otherwise its too slow.
 python ./$backend_directory/manage.py test core --exclude-tag=slow
-pip freeze > ./$backend_directory/requirements.txt
+pip freeze > ./requirements.txt
 
 # Frontend
 # yapf . --recursive -i
